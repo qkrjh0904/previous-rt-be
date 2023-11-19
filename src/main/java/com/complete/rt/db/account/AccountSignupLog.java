@@ -13,14 +13,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class AccountPasswordLog extends BaseCreateDateTimeEntity {
+public class AccountSignupLog extends BaseCreateDateTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long sn;
-
-    @Column(nullable = false, updatable = false)
-    private String password;
 
     @Column(nullable = false, updatable = false)
     private Long accountSn;
@@ -28,11 +25,18 @@ public class AccountPasswordLog extends BaseCreateDateTimeEntity {
     @Column(nullable = false, updatable = false)
     private String id;
 
-    public static AccountPasswordLog create(Account account) {
-        AccountPasswordLog accountPasswordLog = new AccountPasswordLog();
-        accountPasswordLog.password = account.getPassword();
-        accountPasswordLog.accountSn = account.getSn();
-        accountPasswordLog.id = account.getId();
-        return accountPasswordLog;
+    @Column(nullable = false, updatable = false)
+    private String phone;
+
+    @Column(nullable = false, updatable = false)
+    private String ip;
+
+    public static AccountSignupLog create(Account account, String ip) {
+        AccountSignupLog accountSignupLog = new AccountSignupLog();
+        accountSignupLog.accountSn = account.getSn();
+        accountSignupLog.id = account.getId();
+        accountSignupLog.phone = account.getPhone();
+        accountSignupLog.ip = ip;
+        return accountSignupLog;
     }
 }

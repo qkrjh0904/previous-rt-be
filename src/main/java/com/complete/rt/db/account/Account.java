@@ -1,6 +1,7 @@
 package com.complete.rt.db.account;
 
 import com.complete.rt.db.BaseDateTimeEntity;
+import com.complete.rt.db.file.File;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Account extends BaseDateTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long sn;
 
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private String id;
 
     @Column(nullable = false)
@@ -36,4 +37,22 @@ public class Account extends BaseDateTimeEntity {
     @Column(nullable = false)
     private String nickname;
 
+    private Long profileImageSn;
+
+    public static Account create(String id, String password, String phone, String nickname) {
+        Account account = new Account();
+        account.id = id;
+        account.password = password;
+        account.phone = phone;
+        account.nickname = nickname;
+        return account;
+    }
+
+    public void updateNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void updateProfileImage(File profileImage) {
+        this.profileImageSn = profileImage.getSn();
+    }
 }

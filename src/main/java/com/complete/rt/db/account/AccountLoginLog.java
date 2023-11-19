@@ -35,6 +35,17 @@ public class AccountLoginLog extends BaseCreateDateTimeEntity {
     @Column(nullable = false, updatable = false)
     private String ip;
 
-    @Column(nullable = false, updatable = false, columnDefinition = "TEXT")
+    @Column(nullable = false, updatable = false, columnDefinition = "text")
     private String message;
+
+
+    public static AccountLoginLog create(SuccessType successType, Long accountSn, String id, String ip, String message) {
+        AccountLoginLog accountLoginLog = new AccountLoginLog();
+        accountLoginLog.successType = successType;
+        accountLoginLog.accountSn = accountSn;
+        accountLoginLog.id = id;
+        accountLoginLog.ip = ip;
+        accountLoginLog.message = message;
+        return accountLoginLog;
+    }
 }

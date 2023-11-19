@@ -1,5 +1,8 @@
 package com.complete.rt.domain.account.service;
 
+import com.complete.rt.db.account.Account;
+import com.complete.rt.domain.account.exception.CannotFindAccountException;
+import com.complete.rt.domain.account.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,4 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class AccountFindService {
+
+    private final AccountRepository accountRepository;
+
+    public Account findByIdOrElseThrow(String id) {
+        return accountRepository.findById(id)
+                .orElseThrow(CannotFindAccountException::new);
+    }
 }
