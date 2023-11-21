@@ -28,4 +28,11 @@ public class File extends BaseCreateDateTimeEntity {
     @Column(nullable = false, updatable = false)
     private Long size;
 
+    public static File create(String fileUid, String filePath, Long fileSize) {
+        File file = new File();
+        file.uid = fileUid;
+        file.path = filePath;
+        file.size = fileSize;
+        return file;
+    }
 }

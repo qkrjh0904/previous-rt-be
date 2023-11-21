@@ -1,8 +1,10 @@
 package com.complete.rt.db.post;
 
 import com.complete.rt.db.BaseDateTimeEntity;
+import com.complete.rt.db.account.Account;
 import com.complete.rt.db.enums.AccessType;
 import com.complete.rt.db.enums.OpenType;
+import com.complete.rt.db.file.File;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -32,9 +34,6 @@ public class Post extends BaseDateTimeEntity {
     private Long videoFileSn;
 
     @Column(nullable = false, updatable = false)
-    private Long thumbnailFileSn;
-
-    @Column(nullable = false, updatable = false)
     private Long accountSn;
 
     @Column(nullable = false)
@@ -45,4 +44,13 @@ public class Post extends BaseDateTimeEntity {
     @Enumerated(EnumType.STRING)
     private OpenType openType = OpenType.OPEN;
 
+    public static Post of(String title, String content, AccessType accessType, Account account, File file) {
+        Post post = new Post();
+        post.title = title;
+        post.content = content;
+        post.videoFileSn = file.getSn();
+        post.accountSn = account.getSn();
+        post.accessType = accessType;
+        return post;
+    }
 }
