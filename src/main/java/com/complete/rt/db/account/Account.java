@@ -55,4 +55,8 @@ public class Account extends BaseDateTimeEntity {
     public void updateProfileImage(File profileImage) {
         this.profileImageSn = profileImage.getSn();
     }
+
+    public void updatePassword(String password) {
+        this.password = password;
+    }
 }

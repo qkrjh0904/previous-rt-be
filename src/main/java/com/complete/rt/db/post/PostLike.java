@@ -1,5 +1,6 @@
 package com.complete.rt.db.post;
 
+import com.complete.rt.db.BaseCreateDateTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class PostLike {
+public class PostLike extends BaseCreateDateTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +22,6 @@ public class PostLike {
     @Column(nullable = false, updatable = false)
     private Long postSn;
 
-    @Column(nullable = false)
-    private Long count = 0L;
+    @Column(nullable = false, updatable = false)
+    private Long accountSn;
 }

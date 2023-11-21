@@ -1,5 +1,6 @@
-package com.complete.rt.db.post;
+package com.complete.rt.db.tag;
 
+import com.complete.rt.db.BaseCreateDateTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,15 +13,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class PostViews {
+public class TagScrap extends BaseCreateDateTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long sn;
 
     @Column(nullable = false, updatable = false)
-    private Long postSn;
+    private Long tagSn;
 
-    @Column(nullable = false)
-    private Long count = 0L;
+    @Column(nullable = false, updatable = false)
+    private Long accountSn;
 }
