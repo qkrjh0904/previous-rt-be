@@ -19,7 +19,7 @@ public class Tag extends BaseCreateDateTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long sn;
 
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private String name;
 
 }

@@ -2,6 +2,7 @@ package com.complete.rt.domain.account.controller;
 
 import com.complete.rt.domain.account.model.rq.SaveAccountRq;
 import com.complete.rt.domain.account.model.rq.UpdateAccountRq;
+import com.complete.rt.domain.account.model.rq.UpdatePasswordRq;
 import com.complete.rt.domain.account.service.AccountWriteService;
 import com.complete.rt.domain.global.path.ApiPath;
 import com.complete.rt.security.AccountContext;
@@ -10,6 +11,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +37,17 @@ public class AccountWriteController {
         accountWriteService.update(accountContext.id(), rq.toDto());
     }
 
-    // TODO: 2023-11-19 로그아웃
-    // TODO: 2023-11-19 회원탈퇴  
-    // TODO: 2023-11-19 비밀번호 수정
+    @Operation(summary = "계정탈퇴")
+    @DeleteMapping(ApiPath.ACCOUNT)
+    public void delete(@AuthenticationPrincipal AccountContext accountContext) {
+        accountWriteService.delete(accountContext.id());
+    }
+
+    @Operation(summary = "비밀번호 수정")
+    @PutMapping(ApiPath.ACCOUNT_PASSWORD)
+    public void updatePassword(@AuthenticationPrincipal AccountContext accountContext,
+                               @Validated @RequestBody UpdatePasswordRq rq) {
+        accountWriteService.updatePassword(accountContext.id(), rq.toDto());
+    }
+
 }

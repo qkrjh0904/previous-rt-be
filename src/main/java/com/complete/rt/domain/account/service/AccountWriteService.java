@@ -4,6 +4,7 @@ import com.complete.rt.db.account.Account;
 import com.complete.rt.db.file.File;
 import com.complete.rt.domain.account.model.dto.SaveAccountDto;
 import com.complete.rt.domain.account.model.dto.UpdateAccountDto;
+import com.complete.rt.domain.account.model.dto.UpdatePasswordDto;
 import com.complete.rt.domain.account.repository.AccountRepository;
 import com.complete.rt.domain.file.service.FileFindService;
 import lombok.RequiredArgsConstructor;
@@ -32,9 +33,21 @@ public class AccountWriteService {
     }
 
     private void checkValidation(SaveAccountDto dto) {
-        // TODO: 2023-11-19 아이디 중복체크
-        // TODO: 2023-11-19 비밀번호 유효성 체크
+        checkIdValidation(dto.id());
+        checkPasswordValidation(dto.password());
+        checkPhoneValidation(dto.phone());
+    }
+
+    private void checkPhoneValidation(String phone) {
         // TODO: 2023-11-19 휴대폰 인증 체크
+    }
+
+    private void checkPasswordValidation(String password) {
+        // TODO: 2023-11-19 비밀번호 유효성 체크
+    }
+
+    private void checkIdValidation(String id) {
+        // TODO: 2023-11-19 아이디 중복체크
     }
 
     public void update(String id, UpdateAccountDto dto) {
@@ -43,5 +56,18 @@ public class AccountWriteService {
 
         account.updateNickname(dto.nickname());
         account.updateProfileImage(profileImage);
+    }
+
+    public void delete(String id) {
+        Account account = accountFindService.findByIdOrElseThrow(id);
+        accountRepository.delete(account);
+    }
+
+    public void updatePassword(String id, UpdatePasswordDto dto) {
+        checkPasswordValidation(dto.password());
+
+        Account account = accountFindService.findByIdOrElseThrow(id);
+        account.updatePassword(dto.password());
+        accountPasswordLogWriteService.save(account);
     }
 }
