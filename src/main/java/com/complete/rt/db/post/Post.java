@@ -32,9 +32,6 @@ public class Post extends BaseDateTimeEntity {
     private Long videoFileSn;
 
     @Column(nullable = false, updatable = false)
-    private Long thumbnailFileSn;
-
-    @Column(nullable = false, updatable = false)
     private Long accountSn;
 
     @Column(nullable = false)

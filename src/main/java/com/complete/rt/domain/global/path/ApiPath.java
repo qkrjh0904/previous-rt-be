@@ -9,4 +9,7 @@ public class ApiPath {
 
     // follow
     public static final String FOLLOW = "/follow/v1";
+
+    // file
+    public static final String FILE = "/file/v1";
 }
