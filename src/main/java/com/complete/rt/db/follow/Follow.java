@@ -25,4 +25,10 @@ public class Follow extends BaseCreateDateTimeEntity {
     @Column(nullable = false, updatable = false)
     private Long toAccountSn;
 
+    public static Follow of(Long fromAccountSn, Long toAccountSn) {
+        Follow follow = new Follow();
+        follow.fromAccountSn = fromAccountSn;
+        follow.toAccountSn = toAccountSn;
+        return follow;
+    }
 }
