@@ -2,7 +2,7 @@ package com.complete.rt.domain.account.service;
 
 import com.complete.rt.db.account.Account;
 import com.complete.rt.domain.account.exception.CannotFindAccountException;
-import com.complete.rt.domain.account.model.rs.FindAccountByIdRs;
+import com.complete.rt.domain.account.model.rs.FindOtherAccountByIdRs;
 import com.complete.rt.domain.account.model.rs.FindMyAccountRs;
 import com.complete.rt.domain.account.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,8 +26,8 @@ public class AccountFindService {
         return FindMyAccountRs.of(account);
     }
 
-    public FindAccountByIdRs findById(String myId, String id) {
-        Account account = findByIdOrElseThrow(id);
-        return FindAccountByIdRs.of(account);
+    public FindOtherAccountByIdRs findOtherAccountById(String myId, String otherAccountId) {
+        Account account = findByIdOrElseThrow(otherAccountId);
+        return FindOtherAccountByIdRs.of(account);
     }
 }

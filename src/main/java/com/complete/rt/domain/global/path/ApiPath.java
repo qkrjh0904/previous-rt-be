@@ -12,4 +12,7 @@ public class ApiPath {
 
     // file
     public static final String FILE = "/file/v1";
+
+    // post
+    public static final String POST = "/post/v1";
 }
