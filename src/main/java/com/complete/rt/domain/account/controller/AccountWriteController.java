@@ -5,7 +5,7 @@ import com.complete.rt.domain.account.model.rq.UpdateAccountRq;
 import com.complete.rt.domain.account.model.rq.UpdatePasswordRq;
 import com.complete.rt.domain.account.service.AccountWriteService;
 import com.complete.rt.domain.global.path.ApiPath;
-import com.complete.rt.security.AccountContext;
+import com.complete.rt.config.security.AccountContext;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

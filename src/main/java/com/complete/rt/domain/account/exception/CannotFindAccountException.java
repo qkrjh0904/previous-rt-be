@@ -6,6 +6,6 @@ import org.springframework.http.HttpStatus;
 
 public class CannotFindAccountException extends BaseException {
     public CannotFindAccountException() {
-        super(HttpStatus.BAD_REQUEST, ExceptionCode.EXC_ACCOUNT_01);
+        super(HttpStatus.BAD_REQUEST, ExceptionCode.ACCOUNT_001);
     }
 }

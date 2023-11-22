@@ -5,6 +5,7 @@ public class ApiPath {
     // account
     public static final String ACCOUNT = "/account/v1";
     public static final String ACCOUNT_ID = "/account/v1/{id}";
+    public static final String ACCOUNT_LOGIN = "/account/v1/login";
     public static final String ACCOUNT_PASSWORD = "/account/v1/password";
 
     // follow
