@@ -4,7 +4,7 @@ import com.complete.rt.domain.account.model.rs.FindMyAccountRs;
 import com.complete.rt.domain.account.model.rs.FindOtherAccountByIdRs;
 import com.complete.rt.domain.account.service.AccountFindService;
 import com.complete.rt.domain.global.path.ApiPath;
-import com.complete.rt.security.AccountContext;
+import com.complete.rt.config.security.AccountContext;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

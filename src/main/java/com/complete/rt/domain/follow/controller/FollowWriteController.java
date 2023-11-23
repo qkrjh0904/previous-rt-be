@@ -3,7 +3,7 @@ package com.complete.rt.domain.follow.controller;
 import com.complete.rt.domain.follow.model.rq.SaveFollowRq;
 import com.complete.rt.domain.follow.service.FollowWriteService;
 import com.complete.rt.domain.global.path.ApiPath;
-import com.complete.rt.security.AccountContext;
+import com.complete.rt.config.security.AccountContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PostMapping;

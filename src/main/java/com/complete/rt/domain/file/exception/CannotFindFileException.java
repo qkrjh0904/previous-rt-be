@@ -6,6 +6,6 @@ import org.springframework.http.HttpStatus;
 
 public class CannotFindFileException extends BaseException {
     public CannotFindFileException() {
-        super(HttpStatus.BAD_REQUEST, ExceptionCode.EXC_FILE_01);
+        super(HttpStatus.BAD_REQUEST, ExceptionCode.FILE_001);
     }
 }

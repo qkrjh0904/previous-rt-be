@@ -3,7 +3,7 @@ package com.complete.rt.domain.post.controller;
 import com.complete.rt.domain.global.path.ApiPath;
 import com.complete.rt.domain.post.model.rq.SavePostRq;
 import com.complete.rt.domain.post.service.PostWriteService;
-import com.complete.rt.security.AccountContext;
+import com.complete.rt.config.security.AccountContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.annotation.Validated;
